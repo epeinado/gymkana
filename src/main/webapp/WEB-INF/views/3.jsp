@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>Mira detrás de ti...</title>
 </head>
 <body>
-
+  <img src="images/mono3cabezas.jpg">
 </body>
 </html>
