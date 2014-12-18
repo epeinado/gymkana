@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <!-- holding properties for database connectivity /-->
+    <!--<context:property-placeholder location="file:///wireleafQR/properties/jdbc.properties"/>-->
+
+    <!--<util:properties id="jdbcProperties" location="classpath:jdbc.properties" />-->
+    <!--<util:properties id="wireleafQRProperties" location="file:///wireleafQR/properties/wireleafQR.properties"/>-->
+
+    <!-- enabling annotation driven configuration /-->
+    <context:annotation-config/>
+
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+        <!--<property name="driverClassName" value="${jdbc.driverClassName}"/>-->
+        <!--<property name="url" value="${jdbc.url}"/>-->
+        <!--<property name="username" value="${jdbc.username}"/>-->
+        <!--<property name="password" value="${jdbc.password}"/>-->
+    <!--</bean>-->
+
+    <mvc:annotation-driven/>
+
+    <!-- permite la anotación de tareas @Scheduled -->
+    <task:annotation-driven/>
+
+
+    <!--<bean id="entityManagerFactory"-->
+          <!--class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+        <!--<property name="jpaVendorAdapter" ref="jpaAdapter"/>-->
+        <!--<property name="persistenceUnitName" value="wireleafQRPU"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="jpaAdapter"-->
+          <!--class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"-->
+          <!--p:database="${jpa.database}"-->
+          <!--p:showSql="${jpa.showSql}"-->
+          <!--p:databasePlatform="${hibernate.dialect}"/>-->
+
+    <!--<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">-->
+        <!--<property name="entityManagerFactory" ref="entityManagerFactory"/>-->
+    <!--</bean>-->
+
+    <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
+
+    <!--Convención sobre configuración-->
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+
+    <!-- Scans the classpath of this application for @Components to deploy as beans -->
+    <context:component-scan base-package="com.epeinado.cumpleGuille"/>
+
+
+</beans>
